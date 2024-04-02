@@ -1,7 +1,7 @@
 <template>
   <label @click="$emit('update:modelValue', !value)" class="toggle-switch">
     <div class="toggle-switch__title">Show active only</div>
-    <vue-switch :modelValue="value" />
+    <vue-switch class="has-margin-medium is-info" :modelValue="value" />
   </label>
 </template>
 
@@ -26,9 +26,9 @@ export default {
 
 <style scoped>
 .toggle-switch {
+  cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 1em;
 }
 
 .toggle-switch__title {

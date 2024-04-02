@@ -1,6 +1,7 @@
 <template>
-  <div class="container is-widescreen" style="margin-top: 15px">
+  <div class="home container is-widescreen">
     <toggle-active
+      class="switch"
       v-model="active"
       @update:modelValue="(value) => (active = value)"
     />
@@ -36,3 +37,17 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.home {
+  margin-top: 15px;
+  position: relative;
+}
+
+.switch {
+  position: absolute;
+  top: 0.5em;
+  right: 1em;
+  z-index: 1;
+}
+</style>
