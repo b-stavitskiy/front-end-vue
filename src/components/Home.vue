@@ -7,7 +7,7 @@
     />
     <vue-table
       class="box is-paddingless is-rounded"
-      :intervals="!active ? intervals : []"
+      :intervals="intervals"
       :path="path"
       id="example"
     >
@@ -33,14 +33,18 @@ export default {
     return {
       path: "https://test.1234.lc/api/testData/initTable",
       active: true,
-      intervals: {
+    };
+  },
+  computed: {
+    intervals() {
+      return {
         test_data: {
           deleted_at: {
-            min: 0,
+            min: this.active ? null : 0,
           },
         },
-      },
-    };
+      };
+    },
   },
   methods: {
     replaceStatus(id) {
