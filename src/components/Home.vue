@@ -5,7 +5,12 @@
       v-model="active"
       @update:modelValue="(value) => (active = value)"
     />
-    <vue-table class="box is-paddingless is-rounded" :path="path" id="example">
+    <vue-table
+      class="box is-paddingless is-rounded"
+      :intervals="!active ? intervals : []"
+      :path="path"
+      id="example"
+    >
       <template v-slot:status_id="{ row, column }">
         <span>{{ replaceStatus(row[column.name]) }}</span>
       </template>
@@ -14,20 +19,27 @@
 </template>
 
 <script>
-import ToggleActive from './ToggleActive.vue';
-import { VueTable } from '@enso-ui/tables/bulma';
-import { statuses } from '../static/statuses';
+import ToggleActive from "./ToggleActive.vue";
+import { VueTable } from "@enso-ui/tables/bulma";
+import { statuses } from "../static/statuses";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     VueTable,
     ToggleActive,
   },
   data() {
     return {
-      path: 'https://test.1234.lc/api/testData/initTable',
+      path: "https://test.1234.lc/api/testData/initTable",
       active: true,
+      intervals: {
+        test_data: {
+          deleted_at: {
+            min: 0,
+          },
+        },
+      },
     };
   },
   methods: {
