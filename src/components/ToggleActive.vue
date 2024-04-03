@@ -1,15 +1,15 @@
 <template>
   <label @click="$emit('update:modelValue', !value)" class="toggle-switch">
-    <div class="toggle-switch__title">Show active only</div>
+    <div class="toggle-switch__title">Show only inactive</div>
     <vue-switch class="has-margin-medium is-info" :modelValue="value" />
   </label>
 </template>
 
 <script>
-import VueSwitch from '@enso-ui/switch/bulma';
+import VueSwitch from "@enso-ui/switch/bulma";
 
 export default {
-  name: 'ToggleActive',
+  name: "ToggleActive",
   components: {
     VueSwitch,
   },
@@ -20,7 +20,7 @@ export default {
       default: false,
     },
   },
-  emits: ['update:modelValue'],
+  emits: ["update:modelValue"],
 };
 </script>
 

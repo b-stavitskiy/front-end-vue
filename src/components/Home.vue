@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       path: "https://test.1234.lc/api/testData/initTable",
-      active: true,
+      active: false,
     };
   },
   computed: {
@@ -40,7 +40,7 @@ export default {
       return {
         test_data: {
           deleted_at: {
-            min: this.active ? null : 0,
+            min: this.active ? 0 : null,
           },
         },
       };
